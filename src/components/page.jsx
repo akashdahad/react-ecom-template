@@ -12,7 +12,7 @@ class Page extends Component {
     return (
       <div>
         <div className="text-center pb-5">
-          <Navbar />
+          <Navbar total={this.state.total} />
         </div>
         <div className="container">
           <div className="row">
@@ -27,6 +27,8 @@ class Page extends Component {
                   desp={d.description}
                   img={d.image}
                   category={d.category}
+                  tinc={this.handleTotal}
+                  trec={this.handleTotalReduce}
                 />
               </div>
             ))}
@@ -35,6 +37,14 @@ class Page extends Component {
       </div>
     );
   }
+  handleTotal = () => {
+    let total = this.state.total;
+    this.setState({ total: total + 1 });
+  };
+  handleTotalReduce = () => {
+    let total = this.state.total;
+    this.setState({ total: total - 1 });
+  };
 }
 
 export default Page;

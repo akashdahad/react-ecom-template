@@ -5,7 +5,7 @@ import _ from "lodash";
 class Product extends Component {
   state = { quant: 0 };
   render() {
-    let { title, img, desp, category, price } = this.props;
+    let { title, img, desp, category, price, tinc, trec } = this.props;
     if (title.length > 28) {
     }
 
@@ -73,11 +73,15 @@ class Product extends Component {
   handleReduce = () => {
     let quant = this.state.quant;
     this.setState({ quant: quant - 1 });
+    this.props.trec();
+
     console.log(this.state.quant);
   };
   handleQuant = () => {
     let quant = this.state.quant;
     this.setState({ quant: quant + 1 });
+    this.props.tinc();
+
     console.log(this.state.quant);
   };
 }
